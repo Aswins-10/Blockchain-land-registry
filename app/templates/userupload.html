@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<!-- css link -->
+<link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<style>
+    body{
+        background-color: #145757;
+    }
+    #para1{
+        font-size: 22px;
+        font-family: sans-serif;
+       font-weight: 800;
+       color: green;
+       text-shadow: 1px 1px 2.2px black;
+    }
+    .list1 b{
+        color:rgb(73, 163, 163) ;
+        text-shadow: 1px 1px 2.2px black;
+    }
+    .btn1{
+        width: 100%;
+        background-color: rgb(0, 94, 100);
+        color: #f9ffff;
+        font-weight: 500;
+        font-size: 20px;
+        margin-top: 10px;
+        border-radius: 6px;
+        outline: none;
+        border: 1px solid rgb(0, 63, 78);
+        box-shadow: 2px 2px 5.2px black;
+        padding: 2px;
+        text-shadow: 1px 1px 5.2px black;
+        
+
+    }
+    .btn1:hover{
+        background-color: rgb(0, 152, 163);
+        color: antiquewhite;
+        box-shadow: 0px 0px 5.2px black;
+    }
+</style>
+<body >
+    
+    <form method="POST">
+        {% csrf_token %}
+        
+    <div class="container"id="container">
+        
+        <div class="row g-3 m-5">
+            <p class=""id="para1">
+                Here we have to upload complaints and new project ideas
+            </p>
+            <div class="list1"id="upload" ><b>Upload Complaint</b>
+                <input name="complaint" type="text" class="form-control">
+            </div>
+            <div class="list1"id="new" ><b>Upload New Project Ideas</b>
+                <input name="newidea" type="text" class="form-control">
+                
+            </div>
+            <div>
+                <button class="btn1">Submit</button></div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

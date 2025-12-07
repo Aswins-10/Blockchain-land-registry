@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<!-- css link -->
+<link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<style>
+  /* body{
+    background-image: url("{% static 'img6.webp' %}");
+  } */
+#heading{
+  font-size: 2rem;
+  font-weight: 800;
+  /* background-color: #0a52525b; */
+  border-bottom: 5px solid rgba(5, 21, 56, 0.521);
+  text-shadow:  -3px -3px 2.2px black;
+  /* box-shadow: 0px 2px 10.2px black; */
+  color: white;
+  font-family: sans-serif;
+  margin-bottom:10px ;
+  
+}
+#table1{
+  background-color: #0a5252b7;
+  border-collapse: collapse;
+  font-weight: 800;
+       color: rgba(0, 128, 0, 0.788);
+       text-shadow: 1px 1px 2.2px black;
+  
+  /* border: 2px solid black; */ border: 3px double rgba(9, 33, 34, 0.856);
+}
+#table tr th{
+  font-size: 30px;
+  font-family: sans-serif;
+  font-weight: 500;
+}
+#table1 td{
+   color:rgb(73, 163, 163) ;
+        text-shadow: 1px 1px 2.2px black;
+  
+}
+#table1 th td{
+  border: 2px double rgb(0, 0, 0);
+}
+#a-list{
+  
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-family:  sans-serif;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 50px;
+    padding: 5px 10px 5px 10px;
+  transition: 200ms ease-in-out;
+  }
+  #a-list:hover{
+    background-color: rgba(4, 87, 59, 0.651);
+    color: rgb(0, 182, 9);
+    box-shadow: 0 0 5px 1.2px black;
+   transform: scale(1.1);
+  }
+
+  
+</style>
+    
+    <body class="backgnd" style="background-color:#0a5252f1" >
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="#">LOGO</a>
+         
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
+           
+          </div> 
+          <a href="/userupload" button class="btn " id="a-list">Complaint and new idea Upload</a></button><br>
+          
+          <a href="http://127.0.0.1:8000/#" button class="btn btn-success">Home</a></button><br>
+        </div>
+        
+      </nav>
+    <!-- {{ id }} -->
+    <!-- api table -->
+    <h2 class="container  text-center p-2  "id="heading">Newly starting project details by the state goverment</h2><hr>
+    <table class="container table table-striped table-hover "id="table1">
+      <thead>
+        <tr class="">
+        <th>Project Details</th>
+        <th>Place</th>
+        <th>Fund Details</th>
+        </tr>
+
+      </thead>
+      <tbody>
+        <tr>
+      {% for i in key%}
+    <td>{{i.projectdetails}}</td>
+    <td>{{i.place}}</td>
+    <td>{{i.funddetails}}</td></tr>
+    {%endfor%}</tbody></table>
+    <h2 class="container  text-center p-2 "id="heading">Expenditure details uploaded by the councillor</h2>
+    <table class="container table table-striped table-hover  "id="table1">
+      <thead>
+        <tr>
+          <th>Project Name</th>
+          <th>Description</th>
+          <th>Expenditure</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>{% for i in data%}
+   <td> {{i.projectname}}</td>
+    <td>{{i.description}}</td>
+    <td>{{i.exp}}</td></tr>
+    {%endfor%}
+  
+  </tbody>
+  </table>
+    <!-- <table class="container mt-5 table table-dark text-white table-striped-columns">
+        <thead>
+          <tr >
+            <th scope="col "class="text-warning">#ID</th>
+            <th scope="col "class="text-warning">Project details</th>
+            <th scope="col "class="text-warning">Place</th>
+            <th scope="col "class="text-warning">Fund details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{id}}</th>
+            <td> {{ projectdetails }}</td>
+            <td>{{ place }}</td>
+            <td>{{ funddetails }} 
+            </td>
+          </tr>
+          <tr>
+         
+        </tbody>
+      </table> -->
+      <!-- table end -->
+    <!-- {{ projectdetails }}
+    {{ place }}
+    {{ funddetails }}  -->
+
+    <!-- <form method="POST">
+        {% csrf_token %}
+        
+    <div class="container">
+        
+        <div class="row g-3 m-5">
+            <p class="text-primary">
+                here we have to upload complaints and new project ideas
+            </p>
+            <div id="upload"><b>Upload Complaint</b>
+                <input name="complaint" type="text" class="form-control">
+            </div>
+            <div id="new"><b>Upload New Project Ideas</b>
+                <input name="newidea" type="text" class="form-control">
+                
+            </div>
+            <div>
+                <button class="btn btn-success">Submit</button></div> -->
+        </div>
+    </div>
+    </form>
+</body>
+</html>
+

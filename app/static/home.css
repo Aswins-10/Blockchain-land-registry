@@ -1,0 +1,13 @@
+.backgnd{
+    /* background-color: rgba(58, 8, 197, 0.767); */
+    background-image: url("{% static 'cpage.jpg' %}");
+
+}
+#upload{
+    color: rgb(11, 12, 12);
+    font-family: Arial, Helvetica, sans-serif;
+}
+#new{
+    color:rgb(11, 12, 12);
+    font-family: Arial, Helvetica, sans-serif;
+}

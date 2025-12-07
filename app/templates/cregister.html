@@ -1,0 +1,92 @@
+{% extends 'councillor.html' %}
+
+{% block content %}
+<style>
+    body{
+        background-color: #0a5252;
+    }
+    #header{
+        font-size: 2rem;
+  font-weight: 800;
+  /* background-color: #0a52525b; */
+  border-bottom: 5px solid rgba(5, 21, 56, 0.521);
+  text-shadow:  -3px -3px 2.2px black;
+  /* box-shadow: 0px 2px 10.2px black; */
+  color: white;
+  font-family: sans-serif;
+  margin-bottom:20px ;
+  margin-top:5px ;
+  background-color: transparent;
+  
+    }
+</style>
+<body>
+    <form method="POST" id="form">
+        {% csrf_token %}
+    <div class="container">
+        <div class="row">
+
+            <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+
+                <div class="row g-2">
+                   <div class="head">   <h4 id="header"><b>Contractor Registration</b></h4></div>
+                    <div class="col col-sm-12 col-md-12 col lg-12 col-xl-6 col-xxl-6">
+                        <input name="firstname" type="text" class="form-control" placeholder="First name" required>
+                    </div>
+                    <div class="col col-sm-12 col-md-12 col lg-12 col-xl-6 col-xxl-6">
+                        <input name="lastname" type="text" class="form-control" placeholder="Last Name" required>
+                    </div>
+                    
+                    <div class="col col-sm-12 col-md-12 col lg-12 col-xl-12 col-xxl-12">
+                        <input name="email" type="email" class="form-control" placeholder="Email" required>
+                    </div>
+                    <div class="col col-sm-12 col-md-12 col lg-12 col-xl-6 col-xxl-6">
+                        <input name="pass1" type="password" class="form-control" placeholder="Password" required>
+                    </div>
+                    <div class="col col-sm-12 col-md-12 col lg-12 col-xl-6 col-xxl-6" >
+                        <input name="pass2" type="password" class="form-control" placeholder="Confirm Password" required>
+                    </div>
+                    <div class="col col-sm-12 col-md-12 col lg-12 col-xl-12 col-xxl-12">
+                        <select name="place" id="" class="form-control" required>
+                            <option value="select place">select place</option>
+                            <option value="Thiruvanathapuram">Thiruvanathapuram</option>
+                            <option value="Kollam">Kollam</option>
+                            <option value="Pathanamthitta">Pathanamthitta</option>
+                            <option value="Alappuzha">Alappuzha</option>
+                            <option value="Kottayam">Kottayam</option>
+                            <option value="Edukki">Edukki</option>
+                            <option value="Eranakulam">Eranakulam</option>
+                            <option value="Thissur">Thissur</option>
+                            <option value="Plakkad">Plakkad</option>
+                            <option value="Malappuram">Malappuram</option>
+                            <option value="Kannur">Kannur</option>
+                            <option value="Wayanad">Wayanad</option>
+                            <option value="Kozhikod">Kozhikod</option>
+                            <option value="Kasargod">Kasargod</option>
+                        </select>
+                    </div>
+                    <div class="col col-sm-12 col-md-12 col lg-12 col-xl-6 col-xxl-6">
+                        <select name="gender" id="" class="form-control" required>
+                            <option value="select gender">select gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div class="col col-sm-12 col-md-12 col lg-12 col-xl-6 col-xxl-6">
+                        <input name="phoneno" type="number" class="form-control" placeholder="Phone number" required onkeypress="phoneno()" maxlength="10">
+                    </div>
+                    
+                    <div class="col col-sm-12 col-md-12 col lg-12 col-xl-12 col-xxl-12">
+                       <input name="ward" type="text" class="form-control" placeholder="Ward" required> 
+                    </div>
+                    <div class="col col-sm-12 col-md-12 col lg-12 col-xl-12 col-xxl-12">
+                        <button  class="btn btn-success">Submit</button>
+                    </div>
+                    <!-- <p class="text-center">Have an account?<a href="/clogin">log in </a></p> -->
+                </div>
+           
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

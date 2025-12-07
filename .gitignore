@@ -1,0 +1,24 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment / env files
+venv/
+.env
+
+# Django database
+db.sqlite3
+
+# Media uploads (optional – ignore if you don't want to track user files)
+media/
+media/uploads/
+
+# IDE / Editor
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store

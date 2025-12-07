@@ -1,0 +1,73 @@
+{% extends 'councillor.html' %}
+
+{% block content %}
+<div class="col-lg-12">
+    <h2 class="page-header">
+       {{title}}
+       </h2>
+                </div>
+ <div class="row">
+
+    <div class="col-md-12">
+       <table class="table table-hover table-dark">
+  <thead>
+
+
+
+
+
+    <tr>
+         <th scope="col">LocationDetails</th>
+
+      <th scope="col">District</th>
+      <th scope="col">Place</th>
+      <th scope="col">Surveyno</th>
+        <th scope="col">PriceValue</th>
+   {% if 'member_type' in request.session %}
+
+        <th  colspan="2" class="text-center">action</th>
+          {% endif %}
+    </tr>
+
+  </thead>
+  <tbody>
+{% for com in works %}
+
+    <tr>
+        <th>{{com.LocationDetails}}</th>
+
+
+      <td>{{com.District}}</td>
+      <td>{{com.Place}}</td>
+  <td>{{com.Surveyno}}</td>
+ <td>{{com.PriceValue}}</td>
+
+ <td colspan="2" class="text-center">
+     {% if 'member_type' in request.session %}
+
+    {% if not com.status and request.session.member_type == 'ngo'%}
+     <a href="{% url 'land_set_approve' com.id %}" class="btn btn-primary" id="{{com.id}}">Approve</a>
+<!-- <a href="{% url 'upload_donate' %}" class="btn btn-danger" id="{{com.id}}">delete</a>-->
+     {% endif%}
+      {% if not com.Tosell  %}
+
+          {% if request.session.member_type == 'euser' %}
+         <a href="{% url 'land_set_sell' com.id %}" class="btn btn-primary" id="{{com.id}}">Make to Sell</a>
+          {% endif %}
+      {% else  %}
+     <span>Open To Sell</span>
+      {% endif %}
+     {% endif %}
+
+ </td>
+
+
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+    </div>
+  </div>
+{% endblock %}

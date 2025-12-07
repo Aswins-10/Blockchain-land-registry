@@ -1,0 +1,22 @@
+{% extends 'councillor.html' %}
+
+{% block content %}
+<div class="col-lg-12">
+    <h2 class="page-header">Welcome
+
+        {% if 'member_type' in request.session  and request.session.member_type == 'euser'%}
+        User
+        {% elif request.session.member_type == 'cuser' %}
+        Contractor
+        {% else %}
+        Admin
+        {% endif %}
+    </h2>
+                </div>
+ <div class="row">
+
+    <div class="col-md-12">
+          <h1> </h1>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'councillor.html' %}
+
+{% block content %}
+<div class="col-lg-12">
+    <h2 class="page-header">View Contractors</h2>
+                </div>
+ <div class="row">
+
+    <div class="col-md-12">
+       <table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">tName</th>
+
+      <th scope="col">Email</th>
+ <th scope="col">Place</th>
+
+        <th  colspan="2" class="text-center">action</th>
+    </tr>
+
+  </thead>
+  <tbody>
+{% for com in creg %}
+
+    <tr>
+      <th scope="row">{{com.firstname}}</th>
+
+
+
+        <td>{{com.email}}</td>
+
+        <td>{{com.place}}</td>
+        <td colspan="2" class="text-center">
+<!--            <a href="customcomment/{{com.id}}" class="btn btn-success" id="{{com.id}}">edit</a>-->
+<!--         <a href="delete/{{com.id}}" class="btn btn-danger" id="{{com.id}}">delete</a>-->
+
+
+
+        </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+    </div>
+  </div>
+{% endblock %}
